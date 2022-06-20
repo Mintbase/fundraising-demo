@@ -7,7 +7,7 @@ import { Loader } from '../components/Loader'
 
 
 export default function Home({ tokens }) {
-  const { wallet, isConnected, connectWallet, disconnectWallet } = useWallet()
+  const { wallet, isInitializing, isConnected, connectWallet, disconnectWallet } = useWallet()
   return (
     <div className={styles.container}>
       <Head>
@@ -22,9 +22,21 @@ export default function Home({ tokens }) {
         <p className={styles.description}>
           This is a fundraising client demo on NEAR Protocol for the 2022 Dublin Marathon.
         </p>
-        <button className={styles.button} onClick={connectWallet}>Connect NEAR Wallet</button>
+        
+        {isInitializing && <Loader text="Connecting to NEAR..." />}
+
+        {!isInitializing && !isConnected &&  
+            <button className={styles.button} onClick={connectWallet}>Connect NEAR Wallet</button>    
+        }
+
+        {!isInitializing && isConnected &&  
+            <div className={styles.walletstatus}>
+              <p>Connected to {wallet.getAccountId()}</p>
+              <button className={styles.button} onClick={disconnectWallet}>Disconnect NEAR Wallet</button>    
+            </div>
+        }
         <br />
-        <Loader />
+        
         <p className={styles.walletstatus}>
           To pledge a donation, then select a distance token/amount to pledge.
         </p>

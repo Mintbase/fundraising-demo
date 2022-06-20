@@ -5,6 +5,7 @@ import { createContext, useContext, useEffect, useState } from 'react';
 type WalletState = {
   wallet: nearAPI.WalletConnection | null;
   isConnected: boolean;
+  isInitializing: boolean;
 }
 
 type WalletActions = {
@@ -33,15 +34,18 @@ const intializeNearWallet = async () => {
   }
 };
 
-const WalletContext = createContext<WalletState & WalletActions>({ 
+const intialState = { 
   wallet: null, 
   isConnected: false,
+  isInitializing: true,
   connectWallet: () => null,
   disconnectWallet: () => null,
-});
+}
+
+const WalletContext = createContext<WalletState & WalletActions>(intialState);
 
 export const WalletProvider = ({ children }) => {
-  const [state, setState] = useState<WalletState>()
+  const [state, setState] = useState<WalletState>(intialState)
   useEffect(() => {
     // prevent ssr
     if (typeof window === 'undefined') {
@@ -60,8 +64,10 @@ export const WalletProvider = ({ children }) => {
       //   const details = await account.getAccountDetails();
       //   console.log(account, details);
       // }
-      
-      setState({ wallet, isConnected });
+      // for better UX, keep the loader showing for a bit
+      setTimeout(() => {
+        setState({ wallet, isConnected, isInitializing: false });
+      }, 2000);
     })()
     // This effect should only be fired once, because redirect from wallet happens.
   }, [])

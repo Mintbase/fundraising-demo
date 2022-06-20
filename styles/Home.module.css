@@ -40,6 +40,7 @@
   font-weight: 200;
   max-width: 980px;
   text-align: center;
+  align-items: center; 
 }
 
 .button {

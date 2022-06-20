@@ -2,6 +2,8 @@ html,
 body {
   padding: 0;
   margin: 0;
+  /* background-color: rgb(67, 67, 67);
+  color: #fff; */
   font-family: Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
@@ -13,6 +15,9 @@ a {
 
 * {
   box-sizing: border-box;
+}
+.loading {
+  text-align: center;
 }
 
 .lds-grid {
