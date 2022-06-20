@@ -28,7 +28,7 @@ export default function Home({ tokens }) {
         {!isInitializing && !isConnected &&  
             <div className={styles.walletstatus}>
               <p className={styles.walletstatus}>
-                To make a pledge to the marathon charitable fundraiser
+                To make a pledge to the marathon charitable fundraiser, connect a NEAR wallet.
               </p>  
               <button className={styles.button} onClick={connectWallet}>Connect NEAR Wallet</button>
               <p className={styles.walletstatus}>
@@ -40,7 +40,7 @@ export default function Home({ tokens }) {
         {!isInitializing && isConnected &&  
             <div className={styles.walletstatus}>
               <p>Connected to NEAR account <b>{wallet.getAccountId()}</b></p>
-              <button className={styles.button} onClick={disconnectWallet}>Disconnect NEAR Wallet</button>  
+              <button className={styles.button} onClick={disconnectWallet}>Disconnect</button>  
               <p className={styles.walletstatus}>
                 To pledge a donation select a distance token and amount to pledge below.
               </p>  
@@ -63,7 +63,7 @@ export default function Home({ tokens }) {
             </div>
             <br />
             <div className={styles.about}>
-             If a PR is achived (3:51:00) the owner of that token's pledge will be donated and the token transfered to the donating account.
+              If a PR is achived (3:51:00) the pledged amount will be donated and the token then transfered to the donating account.
             </div>
           </div>
         </div>
