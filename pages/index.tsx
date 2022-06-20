@@ -26,20 +26,26 @@ export default function Home({ tokens }) {
         {isInitializing && <Loader text="Connecting to NEAR..." />}
 
         {!isInitializing && !isConnected &&  
-            <button className={styles.button} onClick={connectWallet}>Connect NEAR Wallet</button>    
+            <div className={styles.walletstatus}>
+              <p className={styles.walletstatus}>
+                To make a pledge to the marathon charitable fundraiser
+              </p>  
+              <button className={styles.button} onClick={connectWallet}>Connect NEAR Wallet</button>    
+            </div>
         }
 
         {!isInitializing && isConnected &&  
             <div className={styles.walletstatus}>
-              <p>Connected to {wallet.getAccountId()}</p>
-              <button className={styles.button} onClick={disconnectWallet}>Disconnect NEAR Wallet</button>    
+              <p>Connected to NEAR account <b>{wallet.getAccountId()}</b></p>
+              <button className={styles.button} onClick={disconnectWallet}>Disconnect NEAR Wallet</button>  
+              <p className={styles.walletstatus}>
+                To pledge a donation select a distance token and amount to pledge below.
+              </p>  
             </div>
         }
         <br />
         
-        <p className={styles.walletstatus}>
-          To pledge a donation, then select a distance token/amount to pledge.
-        </p>
+        
 
 
         <code className={styles.code}>
