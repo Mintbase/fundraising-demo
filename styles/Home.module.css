@@ -35,7 +35,21 @@
   text-align: center;
 }
 
-
+.button {
+  background: #41d189;
+  background: rgb(64,247,3);
+  background: linear-gradient(66deg, rgba(64,247,3,1) 0%, rgba(244,50,192,1) 46%, rgba(0,212,255,1) 100%);
+  -webkit-border-radius: 4;
+  -moz-border-radius: 4;
+  border-radius: 4px;
+  font-family: Arial;
+  color: #ffffff;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+}
 
 .tokens {
   display: grid;
@@ -44,6 +58,7 @@
 
 .token {
   width: 400px;
+  margin: 1rem;
 }
 
 .title a {
