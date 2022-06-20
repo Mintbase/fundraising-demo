@@ -43,6 +43,11 @@
   align-items: center; 
 }
 
+.about {
+  font-size: 1.5rem;
+  font-weight: 200;
+}
+
 .button {
   background: #41d189;
   background: rgb(64,247,3);

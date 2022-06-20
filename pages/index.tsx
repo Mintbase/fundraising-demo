@@ -30,7 +30,10 @@ export default function Home({ tokens }) {
               <p className={styles.walletstatus}>
                 To make a pledge to the marathon charitable fundraiser
               </p>  
-              <button className={styles.button} onClick={connectWallet}>Connect NEAR Wallet</button>    
+              <button className={styles.button} onClick={connectWallet}>Connect NEAR Wallet</button>
+              <p className={styles.walletstatus}>
+                
+              </p>    
             </div>
         }
 
@@ -43,9 +46,7 @@ export default function Home({ tokens }) {
               </p>  
             </div>
         }
-        <br />
         
-      
         <code className={styles.code}>
           {/* {JSON.stringify(wallet.getAccountId())} */}
         </code>
@@ -56,9 +57,14 @@ export default function Home({ tokens }) {
             </div>
           ))}
           <div className={styles.token}>
-            <h2>
-              All Proceeds are donated to charity! (TBD)
-            </h2>
+            <h2>What is this?</h2>
+            <div className={styles.about}>
+              So long as Ben is able to run the distance for each token, the amounts pledged will be automatically donated to charity and the tokens deposited into your wallet.
+            </div>
+            <br />
+            <div className={styles.about}>
+             If a PR is achived (3:51:00) the owner of that token's pledge will be donated and the token transfered to the donating account.
+            </div>
           </div>
         </div>
 
