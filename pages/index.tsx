@@ -45,9 +45,7 @@ export default function Home({ tokens }) {
         }
         <br />
         
-        
-
-
+      
         <code className={styles.code}>
           {/* {JSON.stringify(wallet.getAccountId())} */}
         </code>
