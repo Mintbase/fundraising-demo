@@ -3,9 +3,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { fetchDonatableTokens } from '../data/tokens'
 import { useWallet } from '../data/wallet'
-
-// import * as near from 'near-api-js'
-
+import { Loader } from '../components/Loader'
 
 
 export default function Home({ tokens }) {
@@ -24,8 +22,11 @@ export default function Home({ tokens }) {
         <p className={styles.description}>
           This is a fundraising client demo on NEAR Protocol for the 2022 Dublin Marathon.
         </p>
-        <p className={styles.description}>
-          To pledge a donation, <button className={styles.button} onClick={connectWallet}>connect a wallet</button> then select a distance token/amount to pledge.
+        <button className={styles.button} onClick={connectWallet}>Connect NEAR Wallet</button>
+        <br />
+        <Loader />
+        <p className={styles.walletstatus}>
+          To pledge a donation, then select a distance token/amount to pledge.
         </p>
 
 

@@ -35,6 +35,13 @@
   text-align: center;
 }
 
+.walletstatus {
+  font-size: 1.5rem;
+  font-weight: 200;
+  max-width: 980px;
+  text-align: center;
+}
+
 .button {
   background: #41d189;
   background: rgb(64,247,3);

@@ -1,9 +1,6 @@
 import * as nearAPI from 'near-api-js';
 import { WalletConnection } from 'near-api-js';
-import { type } from 'os';
 import { createContext, useContext, useEffect, useState } from 'react';
-
-
 
 type WalletState = {
   wallet: nearAPI.WalletConnection | null;
@@ -34,7 +31,7 @@ const intializeNearWallet = async () => {
     wallet,
     isConnected: wallet.isSignedIn()
   }
-}
+};
 
 const WalletContext = createContext<WalletState & WalletActions>({ 
   wallet: null, 
@@ -63,7 +60,6 @@ export const WalletProvider = ({ children }) => {
       //   const details = await account.getAccountDetails();
       //   console.log(account, details);
       // }
-      
       
       setState({ wallet, isConnected });
     })()
